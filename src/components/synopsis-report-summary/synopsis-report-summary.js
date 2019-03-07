@@ -87,7 +87,7 @@ class SynopsisReportSummary extends React.Component {
             <a href={this.props.synopsisLink} target="_blank" rel="noopener noreferrer"> CLICK HERE</a>
           </React.Fragment>
     );
-
+    
     return (
       <div className="panel summary-modal">
         <div className="modal-dialog">
