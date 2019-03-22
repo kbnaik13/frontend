@@ -45,7 +45,6 @@ webpackConfig.module.rules = [
     test: /\.(png|svg|jpg|gif|ico)$/i,
     use: ['file-loader'],
   },
-  { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' },
   {
     test: /\.js$/,
     exclude: /node_modules/,

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import * as pl from '../../lib/pick-list-tests';
 import * as pt from '../../lib/playing-time-utils';
 import './_synopsis-report-html.scss';
-import headerLogoImg from '../../assets/rainier-logo-horizontal.png';
 
 export default function SynopsisReportHtml(props) {
   const { student, synopsisReport } = props;
@@ -20,7 +19,7 @@ export default function SynopsisReportHtml(props) {
     const percentage = pointsEarned / pt.maxPointsPossible(subject);
     return Math.round((percentage * 100));
   };
-  console.log('SynopsisReportHtml headerLogoImg', headerLogoImg);
+
   // styling for this html is in actions/synopsis-report-pdf.js
   const scoreTableJSX = <React.Fragment>
     <table className="scoring-table">
@@ -132,6 +131,10 @@ export default function SynopsisReportHtml(props) {
       </div>
     : null;
 
+  // the src string below is the base64 encoding of ../../assets/rainier-horizontal-logo. I'm 
+  // unable to get normal webpack image loading to work with just a simple import logoImg from '../../assets/rainier-horizontal-logo'
+  // It works in navbar.js but not here, I suspect because the PDF file is actually rendered on the server so we need
+  // to send it an absolute path to the file (on the front-end server, notice).
   const synopsisReportHTML = <React.Fragment>
     <body>
       <div className="image">
