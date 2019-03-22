@@ -12,6 +12,7 @@ import Auth from '../auth/auth';
 import * as routes from '../../lib/routes';
 
 import './_app.scss';
+import '../../style/_fonts.scss';
 
 library.add(faPhone, faAt, faUser, faKey, faBirthdayCake, faSchool, faSpinner, faCopy, faInfoCircle);
 

@@ -31,7 +31,7 @@ const synopsisReportToHTML = (student, synopsisReport) => {
       margin-bottom: 24px;
     }
     body {
-      font-family: Helvetica;
+      font-family: "Raleway", Helvetica;
       color: #000;
       padding: 20px;
       margin: 0px;
@@ -50,7 +50,7 @@ const synopsisReportToHTML = (student, synopsisReport) => {
       white-space: pre-wrap;
     }
     table {
-      font-family: Helvetica;
+      font-family: "Raleway", Helvetica;
       border-collapse: collapse;
       font-size: 11px;
       line-height: 20px;

@@ -39,7 +39,19 @@ webpackConfig.module = {};
 webpackConfig.module.rules = [
   {
     test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-    loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+    loader: 'url-loader?limit=20000&mimetype=application/font-woff',
+  },
+  {
+    test: /\.eot(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    loader: 'url-loader?limit=20000&mimetype=application/font-woff',
+  },
+  {
+    test: /\.ttf(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    loader: 'url-loader?limit=20000&mimetype=application/font-woff',
+  },
+  {
+    test: /\.svg(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    loader: 'url-loader?limit=20000&mimetype=application/font-woff',
   },
   {
     test: /\.(png|svg|jpg|gif|ico)$/i,
