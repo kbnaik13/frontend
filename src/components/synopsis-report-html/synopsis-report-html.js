@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import * as pl from '../../lib/pick-list-tests';
 import * as pt from '../../lib/playing-time-utils';
 import './_synopsis-report-html.scss';
+import headerLogoImg from '../../assets/rainier-logo-horizontal.png';
 
 export default function SynopsisReportHtml(props) {
   const { student, synopsisReport } = props;
@@ -19,7 +20,7 @@ export default function SynopsisReportHtml(props) {
     const percentage = pointsEarned / pt.maxPointsPossible(subject);
     return Math.round((percentage * 100));
   };
-
+  console.log('SynopsisReportHtml headerLogoImg', headerLogoImg);
   // styling for this html is in actions/synopsis-report-pdf.js
   const scoreTableJSX = <React.Fragment>
     <table className="scoring-table">
@@ -134,7 +135,7 @@ export default function SynopsisReportHtml(props) {
   const synopsisReportHTML = <React.Fragment>
     <body>
       <div className="image">
-        <img style={{ WebkitUserSelect: 'none' }} src="http://portal.rainierathletes.org/2dbb0b1d137e14479018b5023d904dec.png" />
+        <img style={{ WebkitUserSelect: 'none' }} src="http://portal2.rainierathletes.org/2dbb0b1d137e14479018b5023d904dec.png" />
       </div>
           <h1>{synopsisReport.Student__r.Name}</h1>
           <h2>{synopsisReport.Week__c}</h2>
