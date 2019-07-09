@@ -12,12 +12,12 @@
 .sidebar {
   background-color: white !important;
   border-radius: 6px;
-  position: fixed;
+  position: relative;
   top: 0;
   bottom: 0;
   left: 0;
-  margin-top: 84px;
-  margin-left: 1em;
+  margin-top: 5.25rem;
+  margin-left: 1rem;
   padding-bottom: 12px;
   z-index: 100;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
