@@ -92,6 +92,7 @@ class SynopsisReportForm extends React.Component {
     this.state.savedToGoogleDrive = false;
     this.state.waitingOnGoogleDrive = false;
     this.state.imageUploading = false;
+    this.state.waitingOnBasecamp = false;
     this.props.clearMsgBoardUrl();
   }
 
@@ -116,6 +117,10 @@ class SynopsisReportForm extends React.Component {
 
   componentDidUpdate = (prevProps) => {
     if (this.props.error !== prevProps.error) {
+      if (this.state.waitingOnBasecamp) {
+        this.props.clearError();
+        this.setState({ waitingOnBasecamp: false });
+      }
       if (this.state.waitingOnImages) {
         this.props.clearError();
         const { synopsisReport, communications } = this.state;
@@ -166,6 +171,7 @@ class SynopsisReportForm extends React.Component {
       this.setState({ 
         synopsisReport: { ...this.props.synopsisReport },
         communications: this.initCommunicationsState(this.props.synopsisReport),
+        waitingOnBasecamp: true,
       });
       this.props.clearError();
       this.props.getMsgBoardUrl(this.props.synopsisReport.Student__r.Email);
@@ -926,13 +932,13 @@ class SynopsisReportForm extends React.Component {
       if (this.state.waitingOnSalesforce) {
         return (<h3>Saving synopsis report to Salesforce...</h3>);
       }
-      if (!this.props.messageBoardUrl) {
-        if (!this.props.error) {
+      if (this.state.waitingOnBasecamp) {
+        // if (!this.props.error) {
           return (<React.Fragment>
             <h5>Waiting for Basecamp Messaging connection...</h5>
             <p>If the submit button doesn&#39;t appear soon contact an administrator.</p>
           </React.Fragment>);
-        }
+        // }
       } 
       if (!(this.state.waitingOnSalesforce && this.state.savedToSalesforce
         && this.state.waitingOnGoogleDrive && this.state.savedToGoogleDrive)) {

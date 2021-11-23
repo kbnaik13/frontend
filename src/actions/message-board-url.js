@@ -25,7 +25,8 @@ export const getMsgBoardUrl = studentEmail => (store) => { // eslint-disable-lin
     .query({ studentEmail, basecampToken })
     .then((res) => {
       const { messageBoardUrl } = res.body;
-      return store.dispatch(setMsgBoardUrl(messageBoardUrl));
+      store.dispatch(setMsgBoardUrl(messageBoardUrl));
+      return store.dispatch(setError(res.status));
     })
     .catch((err) => {
       return store.dispatch(setError(err.status));
